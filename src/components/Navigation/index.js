@@ -9,20 +9,19 @@ const Navigation = () => (
             <span className="navbar-item">
                <Link to={ROUTES.LANDING}>RFB</Link>
             </span>
-            <a
+            <span
                role="button"
-               class="navbar-burger burger"
+               className="navbar-burger burger"
                aria-label="menu"
                aria-expanded="false"
                data-target="mainMenu"
-               href
             >
                <span aria-hidden="true" />
                <span aria-hidden="true" />
                <span aria-hidden="true" />
-            </a>
+            </span>
          </div>
-         <div id="mainMenu" class="navbar-menu">
+         <div id="mainMenu" className="navbar-menu">
             <div className="navbar-end">
                <span className="navbar-item">
                   <Link to={ROUTES.SIGN_IN}>Sign In</Link>
