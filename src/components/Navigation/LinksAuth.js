@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 import { HOME, ACCOUNT } from "../../constants/routes";
 import SignOutButon from "../SignOut";
 
-const NavAuth = () => (
+const LinksAuth = () => (
    <Fragment>
       <span className="navbar-item">
          <NavLink to={HOME}>Home</NavLink>
@@ -17,4 +17,4 @@ const NavAuth = () => (
    </Fragment>
 );
 
-export default NavAuth;
+export default LinksAuth;

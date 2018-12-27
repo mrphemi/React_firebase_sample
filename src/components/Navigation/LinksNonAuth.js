@@ -2,7 +2,7 @@ import React, { Fragment } from "react";
 import { NavLink } from "react-router-dom";
 import { SIGN_IN } from "../../constants/routes";
 
-const NavNonAuth = () => (
+const LinksNonAuth = () => (
    <Fragment>
       <span className="navbar-item">
          <NavLink to={SIGN_IN}>Sign In</NavLink>
@@ -10,4 +10,4 @@ const NavNonAuth = () => (
    </Fragment>
 );
 
-export default NavNonAuth;
+export default LinksNonAuth;

@@ -11,30 +11,14 @@ import AccountPage from "../Account";
 import AdminPage from "../Admin";
 
 import * as ROUTES from "../../constants/routes";
-import { withFirebase } from "../Firebase";
+import { withAuthentication } from "../Session";
 
 class App extends Component {
-   state = {
-      authUser: true
-   };
-
-   componentDidMount() {
-      this.listener = this.props.firebase.auth.onAuthStateChanged(authUser => {
-         authUser
-            ? this.setState({ authUser })
-            : this.setState({ authUser: null });
-      });
-   }
-
-   componentWillUnmount() {
-      this.listener();
-   }
-
    render() {
       return (
          <Router>
             <Fragment>
-               <Navigation authUser={this.state.authUser} />
+               <Navigation />
                <br />
                <Switch>
                   <Route exact path={ROUTES.LANDING} component={LandingPage} />
@@ -54,4 +38,4 @@ class App extends Component {
    }
 }
 
-export default withFirebase(App);
+export default withAuthentication(App);
