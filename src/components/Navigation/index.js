@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import * as ROUTES from "../../constants/routes";
+import SignOutButon from "../SignOut";
 
 const Navigation = () => (
    <div>
@@ -34,6 +35,9 @@ const Navigation = () => (
                </span>
                <span className="navbar-item">
                   <Link to={ROUTES.ADMIN}>Admin</Link>
+               </span>
+               <span className="navbar-item">
+                  <SignOutButon />
                </span>
             </div>
          </div>
