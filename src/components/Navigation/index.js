@@ -1,9 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import * as ROUTES from "../../constants/routes";
-import SignOutButon from "../SignOut";
 
-const Navigation = () => (
+import NavAuth from "./NavAuth";
+import NavNonAuth from "./NavNonAuth";
+
+const Navigation = ({ authUser }) => (
    <div>
       <nav className="navbar is-primary">
          <div className="navbar-brand">
@@ -24,21 +26,7 @@ const Navigation = () => (
          </div>
          <div id="mainMenu" className="navbar-menu">
             <div className="navbar-end">
-               <span className="navbar-item">
-                  <Link to={ROUTES.SIGN_IN}>Sign In</Link>
-               </span>
-               <span className="navbar-item">
-                  <Link to={ROUTES.HOME}>Home</Link>
-               </span>
-               <span className="navbar-item">
-                  <Link to={ROUTES.ACCOUNT}>Account</Link>
-               </span>
-               <span className="navbar-item">
-                  <Link to={ROUTES.ADMIN}>Admin</Link>
-               </span>
-               <span className="navbar-item">
-                  <SignOutButon />
-               </span>
+               {authUser ? <NavAuth /> : <NavNonAuth />}
             </div>
          </div>
       </nav>
