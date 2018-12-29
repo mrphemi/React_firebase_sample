@@ -1,9 +1,11 @@
 import React from "react";
+import { AuthUserContext } from "../Session";
+import AccountPage from "./AccountPage";
 
 const Account = () => (
-   <div>
-      <h2>Account</h2>
-   </div>
+   <AuthUserContext.Consumer>
+      {authUser => <AccountPage authUser={authUser} />}
+   </AuthUserContext.Consumer>
 );
 
 export default Account;

@@ -17,13 +17,15 @@ class PasswordChangeForm extends Component {
 
       event.preventDefault();
 
+      this.setState({ loading: true });
+
       this.props.firebase
          .doPasswordUpdate(passwordOne)
          .then(() => {
             this.setState({ ...INITIAL_STATE });
          })
          .catch(error => {
-            this.setState({ error });
+            this.setState({ error, loading: false });
          });
    };
 
@@ -37,19 +39,20 @@ class PasswordChangeForm extends Component {
       const isInvalid = passwordOne !== passwordTwo || passwordOne === "";
 
       const buttons = loading ? (
-         <button class="button is-primary is-loading">Submit</button>
+         <button className="button is-primary is-loading">Submit</button>
       ) : (
-         <button disabled={isInvalid} class="button is-primary">
+         <button disabled={isInvalid} className="button is-primary">
             Submit
          </button>
       );
 
       return (
          <form onSubmit={this.onSubmit}>
-            <div class="field">
-               <label class="label">Email</label>
-               <div class="control">
+            <div classNameName="field">
+               <label className="label">Password</label>
+               <div className="control">
                   <input
+                     class="input"
                      name="passwordOne"
                      value={passwordOne}
                      onChange={this.onChange}
@@ -58,10 +61,11 @@ class PasswordChangeForm extends Component {
                   />
                </div>
             </div>
-            <div class="field">
-               <label class="label">Email</label>
-               <div class="control">
+            <div className="field">
+               <label className="label">Confirm Password</label>
+               <div className="control">
                   <input
+                     class="input"
                      name="passwordTwo"
                      value={passwordTwo}
                      onChange={this.onChange}
@@ -70,11 +74,11 @@ class PasswordChangeForm extends Component {
                   />
                </div>
             </div>
-            <div class="field">
-               <div class="control">{buttons}</div>
+            <div className="field">
+               <div className="control">{buttons}</div>
             </div>
             {error && (
-               <p class="is-size-4 has-text-centered has-text-danger">
+               <p className="is-size-4 has-text-centered has-text-danger">
                   {error.message}
                </p>
             )}
