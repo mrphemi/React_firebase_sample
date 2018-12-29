@@ -1,8 +1,11 @@
 import React from "react";
 
+import PasswordChangeForm from "./PasswordChangeForm";
+
 const PasswordChange = () => (
    <div>
-      <h2>PasswordChange</h2>
+      <h2 className="is-size-4">PasswordChange</h2>
+      <PasswordChangeForm />
    </div>
 );
 
