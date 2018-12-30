@@ -1,5 +1,5 @@
 import React from "react";
-import { AuthUserContext } from "../Session";
+import { AuthUserContext, withAuthorization } from "../Session";
 import AccountPage from "./AccountPage";
 
 const Account = () => (
@@ -8,4 +8,6 @@ const Account = () => (
    </AuthUserContext.Consumer>
 );
 
-export default Account;
+const condition = authUser => !!authUser;
+
+export default withAuthorization(condition)(Account);
