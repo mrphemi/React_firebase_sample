@@ -13,7 +13,10 @@ const config = {
 class Firebase {
    constructor() {
       app.initializeApp(config);
+      // Initialize firebase auth
       this.auth = app.auth();
+      // initialize firebase realtime database
+      this.db = app.database();
    }
 
    // Firebase Auth Signup method(Create new user)
@@ -33,6 +36,13 @@ class Firebase {
    // Firebase Auth update password method(Update user password)
    doPasswordUpdate = password =>
       this.auth.currentUser.updatePassword(password);
+
+   // User API
+
+   // Get single user suing uid
+   user = uid => this.db.ref(`users/${uid}`);
+   // Get all users
+   users = () => this.db.ref("users");
 }
 
 export default Firebase;
