@@ -1,5 +1,6 @@
 import app from "firebase/app";
 import "firebase/auth";
+import "firebase/database";
 
 const config = {
    apiKey: process.env.REACT_APP_API_KEY,
@@ -39,7 +40,7 @@ class Firebase {
 
    // User API
 
-   // Get single user suing uid
+   // Refrence single user using uid
    user = uid => this.db.ref(`users/${uid}`);
    // Get all users
    users = () => this.db.ref("users");
